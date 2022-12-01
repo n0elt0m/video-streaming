@@ -30,6 +30,7 @@ func addHeaders(h http.Handler) http.HandlerFunc {
 	}
 }
 
-//mp4 TO m3u8------   ffmpeg -i FileName.mp4 -b:v 1M -g 60
+//mp4 TO m3u8------   ffmpeg -i Crab-Rave.mp4 -profile:v baseline -level 3.0 -s 640x360 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls index.m3u8
 //-hls_time 2 -hls_list_size 0 -hls_segment_size 500000 output.m3u8
 //mp3 TO m3u8------   ffmpeg -i FileName.mp3 -c:a libmp3lame -b:a 128k -map 0:0 -f segment -segment_time 10 -segment_list outputlist.m3u8 -segment_format mpegts output%03d.ts
+// ffmpeg -i Crab-Rave.mp3 -c:a libmp3lame -b:a 128k -map 0:0 -f segment -segment_time 10 -segment_list outputaudiolist.m3u8 -segment_format mpegts outputaudio%03d.ts
